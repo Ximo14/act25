@@ -35,13 +35,14 @@
 	}
 
 	if((isset($_POST['email'])) && (!empty($_POST['email'])) &&
-		(isset($_POST['pass'])) && (!empty($_POST['pass'])) &&
+	(isset($_POST['pass'])) && (!empty($_POST['pass'])) &&
         (isset($_POST['pass2'])) && (!empty($_POST['pass2'])) &&
         (isset($_POST['nombre'])) && (!empty($_POST['nombre'])) &&
         (isset($_POST['apellidos'])) && (!empty($_POST['apellidos']))) {
-			include 'lib/usuarios.php';
-			$usuario = new usuario();
-			$resultado=$usuario->mostrarUsuario($_POST['email']);
+		
+		include 'lib/usuarios.php';
+		$usuario = new usuario();
+		$resultado=$usuario->mostrarUsuario($_POST['email']);
 			
 			if (($_POST['email'])==($resultado['email'])){
 				echo "<font color='red'><h3>Este usuario ya existe, porfavor introduce otro.</h3></font><br><br>";
@@ -76,10 +77,8 @@
 					echo "<a href=registro.php>Registrate</a>";
 					return null;
 				}
-    }
+   			 }
 		}
-
-    
 	?>
 
 
