@@ -30,15 +30,15 @@ class usuario extends db
   }
 
   // Mostrar ultimo equipo
-  public function mostrarUltimoUsuario(){
+  public function mostrarUsuario($usuario){
 
     if ($this->hayError()==true){
 		return null;
 
 	}else{
 
-		$resultado = $this->conexion()->query("SELECT * FROM usuarios ORDER BY id DESC LIMIT 1");
-		return $resultado;
+		$resultado = $this->conexion()->query("SELECT * FROM usuarios WHERE usuario='".$usuario."'");
+		return $resultado->fetch_assoc();
 	}
 
 	}
@@ -55,5 +55,20 @@ class usuario extends db
 
   }
 
+  
+  public function updateUser($nombre,$apellidos,$roles,$email){
+	   if ($this->hayError()==true){
+    return null;
+
+	}else{
+
+    $resultado = $this->conexion()->query("UPDATE usuarios SET nombre='".$nombre."',apellidos='".$apellidos."',rol='".$roles."' WHERE email='".$email."'");
+    return $resultado;
   }
 
+  }
+	
+  
+}
+
+?>

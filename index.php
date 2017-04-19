@@ -39,7 +39,7 @@
 							if ((sha1($_POST['pass'])==($resultado['pass']))){
 								echo "Logeado correctamente.<br><br>";
 								$seguridad->addUsuario($resultado['usuario']);
-								echo "Inicia sesion en tu <a href=MiPerfil.php>perfil</a>";
+								echo "Inicia sesion en tu <a href=MiPerfil.php?email=".$resultado['email'].">perfil</a>";
 								
 								
 								
