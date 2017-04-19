@@ -1,6 +1,6 @@
 <?php
-	/*include 'lib/seguridad.php';
-	$seguridad = new seguridad();
+/*include 'lib/seguridad.php';
+$seguridad = new seguridad();
 	if ($seguridad->getUsuario()== null){
 		header('Location: index.php');
 		exit;
@@ -15,9 +15,9 @@
   <body>
 	<?php
 		if ((empty($_POST['email']))&&
-			(empty($_POST['nombre']))&&
-			(empty($_POST['apellidos']))&&
-			(empty($_POST['roles']))){
+		(empty($_POST['nombre']))&&
+		(empty($_POST['apellidos']))&&
+		(empty($_POST['roles']))){
 				
 	?>
 	<h1>Bienvenido a tu perfil</h1><hr>
@@ -40,18 +40,15 @@
 	
 	<?php
 	}
-		if((isset($_POST['email'])) && (!empty($_POST['email'])) &&
+	if((isset($_POST['email'])) && (!empty($_POST['email'])) &&
         (isset($_POST['nombre'])) && (!empty($_POST['nombre'])) &&
         (isset($_POST['apellidos'])) && (!empty($_POST['apellidos']))&&
-		(isset($_POST['roles'])) && (!empty($_POST['roles']))) {
+	(isset($_POST['roles'])) && (!empty($_POST['roles']))) {
 			
 		include 'lib/usuarios.php';
 		$user = new usuario();	
 		$user->updateUser($_POST['nombre'],$_POST['apellidos'],$_POST['roles'],$_POST['email']);
-		echo "Enhorabuena, tu usuario ha sido actualizado";
-			
-		
-			
+		echo "Enhorabuena, tu usuario ha sido actualizado";	
 		}	
 	?>
 	</body>
