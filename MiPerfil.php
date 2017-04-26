@@ -1,10 +1,11 @@
 <?php
-/*include 'lib/seguridad.php';
+include 'lib/seguridad.php';
 $seguridad = new seguridad();
 	if ($seguridad->getUsuario()== null){
 		header('Location: index.php');
 		exit;
-	}*/
+	}
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,11 +26,11 @@ $seguridad = new seguridad();
 
 	EMAIL<br><br><input type="text" name="email"  placeholder="Usuario" value="<?=$_GET['email']?>" readonly required/><br><br>
 	
-	NOMBRE<br><br><input type="text" name="nombre" placeholder="Actualiza tu nombre" required/><br><br>
+	NOMBRE<br><br><input type="text" name="nombre" placeholder="Actualiza tu nombre"><br><br>
 
-	APELLIDOS<br><br><input type="text" name="apellidos" placeholder="Actualiza tu apellido" required/><br><br>
+	APELLIDOS<br><br><input type="text" name="apellidos" placeholder="Actualiza tu apellido"><br><br>
 	
-	ROLES<br><br><select name="roles" required/>
+	ROLES<br><br><select name="roles">
 		<option value="">ELIGE UN ROL</option>
 		<option value="user">USER</option>
 		<option value="admin">ADMIN</option>
@@ -37,9 +38,16 @@ $seguridad = new seguridad();
 		</select>
 		
 	<br><br><input type="submit" name="" value="ACTUALIZAR">
-	
+	<input type="hidden" name="logout" value="logout">
+	<input type="submit" name="logout" value="LogOut">
+	</form>
 	<?php
 	}
+	
+	if ($_POST['logout']='logout'){
+			$seguridad->logout();
+		}
+			
 	if((isset($_POST['email'])) && (!empty($_POST['email'])) &&
         (isset($_POST['nombre'])) && (!empty($_POST['nombre'])) &&
         (isset($_POST['apellidos'])) && (!empty($_POST['apellidos']))&&

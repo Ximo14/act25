@@ -7,7 +7,7 @@ class db
   //Atributos necesarios para la conexion
   private $host="localhost";
   private $user="root";
-  private $pass="";
+  private $pass="root";
   private $db_name="act25";
 
   //Conector

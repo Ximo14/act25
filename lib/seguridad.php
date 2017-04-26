@@ -15,12 +15,16 @@ class seguridad
   }
   
   public function getUsuario(){
-	return $usuario;
+	return $this->usuarios;
   }
   
   public function addUsuario($usuario){
 	$_SESSION['usuario']=$usuario;
-	$this->usuario=$usuario;
+	$this->usuarios=$usuario;
+  }
+  
+  public function logout(){
+	  session_destroy();
   }
 }
   ?>

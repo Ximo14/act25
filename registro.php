@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+	
     <meta charset="utf-8">
     <title></title>
   </head>
@@ -9,6 +10,7 @@
   <h1>Registrate</h1><hr>
 
 	<?php
+		include 'lib/usuarios.php';
 		if ((empty($_POST['email']))&&
 		(empty($_POST['pass']))&&
 		(empty($_POST['pass2']))&&
@@ -40,7 +42,7 @@
         (isset($_POST['nombre'])) && (!empty($_POST['nombre'])) &&
         (isset($_POST['apellidos'])) && (!empty($_POST['apellidos']))) {
 		
-		include 'lib/usuarios.php';
+		
 		$usuario = new usuario();
 		$resultado=$usuario->mostrarUsuario($_POST['email']);
 			
@@ -68,7 +70,7 @@
 					echo "Registrado correctamente<br><br>";
 					echo "Logeate <a href=index.php>aquí!</a>";
 					
-					include 'lib/usuarios.php';
+					
 					$registro = new usuario();
 					$registro->insertarUser($_POST['email'],$_POST['nombre'],$_POST['apellidos'],$_POST['pass']);
 
