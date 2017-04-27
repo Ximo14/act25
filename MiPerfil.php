@@ -38,14 +38,17 @@ $seguridad = new seguridad();
 		</select>
 		
 	<br><br><input type="submit" name="" value="ACTUALIZAR">
-	<input type="hidden" name="logout" value="logout">
-	<input type="submit" name="logout" value="LogOut">
 	</form>
+	<form class="" action="MiPerfil.php" method="post">
+	<input type="hidden" name="logout" value="Logout">
+	<input type="submit" name="logout" value="LogOut">
 	<?php
 	}
 	
-	if ($_POST['logout']='logout'){
+	if (isset($_POST['logout'])){
+			echo "Logout correcto";
 			$seguridad->logout();
+			header('Location: index.php');
 		}
 			
 	if((isset($_POST['email'])) && (!empty($_POST['email'])) &&
